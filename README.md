@@ -102,10 +102,6 @@ as intended. Run the test file with `python3 game_inventory_test.py -v` to get a
 detailed output. Note that passing all tests not necessarily means passing all
 requirements!
 
-## Starting repository
-
-Click here to clone your own Git repository:
-https://classroom.github.com/a/sjtqJOL2
 
 ## Background materials
 
@@ -120,9 +116,3 @@ important for this project)
 - :open_book: [Modifying objects in-place](https://learn.code.cool/codecool-graph/#/../pages/python/modifying-objects)
 - :open_book: [Understanding Variable scope, lifetime, modifying values and type conversions](https://learn.code.cool/codecool-graph/#/../pages/python/variable-scopes-and-conversions)
 - :open_book: [Python Basics](https://learn.code.cool/codecool-graph/#/../pages/python/python-basics)
-
-
-## Acceptance review
-
-You will need this only at review time, **after** completing the project.
-[Use this form](https://forms.gle/b6GJ4MarFTNeJJAK8) to record the review you provide for your peer.
