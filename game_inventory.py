@@ -12,7 +12,11 @@ def display_inventory(inventory):
 
 def add_to_inventory(inventory, added_items):
     """Add to the inventory dictionary a list of items from added_items."""
-    pass
+
+    for item in added_items:
+        inventory[item] = inventory.setdefault(item, 0) + 1
+
+    return inventory
 
 
 def remove_from_inventory(inventory, removed_items):
@@ -98,20 +102,17 @@ def export_inventory(inventory, filename='test_inventory.csv'):
 
 
 def main():
-    #inventory_test = {'cycki': 4}
     inventory = import_inventory({})
-
-    #inventory = {}
-    #display_inventory(inventory)
-
-    print_table(inventory)
-    print('####################')
     print_table(inventory, 'count,desc')
     print('####################')
-    print_table(inventory, 'count,asc')
-    print('####################')
 
-    #export_inventory(inventory)
+
+    #add new items
+    # new_items = ['cycki', 'cycki', 'dagger', 'gold', 'gold coin', 'dagger', 'dagger', 'dagger', 'battleaxe']
+    # inventory_d = add_to_inventory(inventory, new_items)
+    # print('####################')
+    # print_table(inventory_d, 'count,desc')
+
 
 
 if __name__ == '__main__':
