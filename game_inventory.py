@@ -21,7 +21,13 @@ def add_to_inventory(inventory, added_items):
 
 def remove_from_inventory(inventory, removed_items):
     """Remove from the inventory dictionary a list of items from removed_items."""
-    pass
+
+    for item in removed_items:
+        inventory[item] = inventory.setdefault(item, 0) - 1
+        if inventory[item] <= 0:
+            del inventory[item]
+
+    return inventory
 
 
 def print_table(inventory, order='empty'):
@@ -102,17 +108,38 @@ def export_inventory(inventory, filename='test_inventory.csv'):
 
 
 def main():
+    #display default from file
+    print('default from file:')
     inventory = import_inventory({})
     print_table(inventory, 'count,desc')
     print('####################')
 
 
     #add new items
-    # new_items = ['cycki', 'cycki', 'dagger', 'gold', 'gold coin', 'dagger', 'dagger', 'dagger', 'battleaxe']
-    # inventory_d = add_to_inventory(inventory, new_items)
-    # print('####################')
-    # print_table(inventory_d, 'count,desc')
+    new_items = ['cycki', 'cycki', 'dagger', 'gold', 'gold coin', 'dagger', 'dagger', 'dagger', 'battleaxe']
+    auxiliary_dict = {}
+    for i in new_items:
+        auxiliary_dict[i] = new_items.count(i)
 
+    print(f'add: {auxiliary_dict}')
+
+    inventory = add_to_inventory(inventory, new_items)
+    print('####################')
+    print_table(inventory, 'count,desc')
+    print('####################')
+
+    #delete items
+    delete_items = ['cycki', 'cycki', 'dagger', 'gold', 'gold coin', 'dagger', 'dagger', 'dagger', 'dupa', 'dupa', 'dupa']
+    auxiliary_dict = {}
+    for i in delete_items:
+        auxiliary_dict[i] = delete_items.count(i)
+
+    print(f'delete: {auxiliary_dict}')
+
+    inventory = remove_from_inventory(inventory, delete_items)
+    print('####################')
+    print_table(inventory, 'count,desc')
+    print('####################')
 
 
 if __name__ == '__main__':
